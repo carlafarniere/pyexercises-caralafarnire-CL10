@@ -59,4 +59,114 @@ What is the exact output of `clean_text` after running this code?
 
 **My note:** strip() removes the spaces at both ends only, so clean_text is "Hello, world!". In my program, the other methods (upper, lower, title) keep those spaces, so strip() is useful to clean form answers.
 
+---
+## 2026-11-10 22:55, in .
 
+**Me:** Exercise 3.0: In my code number_1 / number_2 gives 3.5 for 7 and 2. Why not 3, and how do I get only the whole number?
+
+**Tutor:**
+
+Division with / always returns a float in Python.
+To get the whole number part, use integer division //.
+
+```python
+# TODO: replace 7 and 2 with your variables
+result = 7 // 2
+```
+
+What is the type of the value returned by //?
+
+**My note:** / always returns a float, so 7 / 2 gives 3.5. // keeps only the whole part and returns an int when both numbers are int: 7 // 2 gives 3. I kept / in my program because I want the exact result.
+---
+## 2026-11-10 23:07, in .
+
+**Me:** Exercise 3.1: In my code, what does i % 2 == 0 check?
+
+**Tutor:**
+
+Checking even indices.
+The expression `i % 2 == 0` checks whether the index `i` is even.
+
+```python
+# TODO: write a loop that prints every other element
+items = ["alpha", "beta", "gamma", "delta"]
+for i in range(len(items)):
+    if i % 2 == 0:        # TODO: what does this condition do?
+        print(items[i])
+```
+
+What does the condition `i % 2 == 0` evaluate to when `i` is 0?
+
+**My note:** % gives the remainder of a division, so i % 2 == 0 is True when i is even. When i is 0, 0 % 2 is 0, so the condition is True. In my program, i starts at 1, so it prints "is odd" for 1, 3, 5 and "is even" for 2, 4, 6.
+
+---
+## 2026-11-10 23:21, in .
+
+**Me:** Exercise 4.0: In my list, why does budgets[2] give the third item and not the second? How does list indexing work in Python?
+
+**Tutor:**
+
+List indexing starts at 0, so the first item is at index 0, the second at index 1, and the third at index 2.
+
+```python
+budgets = ["low", "medium", "high", "very high"]
+# TODO: What does budgets[0] print?
+print(budgets[2])  # prints the third item
+```
+
+What is the index of the last item in the list?
+
+**My note:** Python counts from 0, so budgets[2] is the third item (March in my list). The last item of a list of 4 is at index 3. In my list of 8 budgets, the last one (August) is budgets[7].
+
+---
+## 2026-11-10 23:26, in .
+
+**Me:** Exercise 4.2: In my dictionary, why does customer["phone"] crash with KeyError but customer.get("phone") does not?
+
+**Tutor:**
+
+Dictionary lookup with square brackets vs .get()
+
+When you use customer["phone"] the program looks for the exact key "phone".
+If the key is missing, Python raises a KeyError.
+
+customer.get("phone") asks for the key "phone" but returns None if the key is missing instead of raising an error.
+
+TODO pattern
+```python
+customer = {"name": "alpha", "email": "beta@example.com"}
+
+# This line will crash:
+# phone = customer["phone"]
+
+# This line will not crash:
+phone = customer.get("phone")
+```
+
+Question: Which method returns a default value when the key is missing?
+
+**My note:** customer["phone"] crashes with KeyError because the key does not exist. The method that returns a default value is .get(): in my program, customer.get("phone", "not available") displays "not available" instead of crashing.
+---
+## 2026-11-10 23:31, in .
+
+**Me:** Exercise 4.1: In my list, what is the difference between sorted(budgets) and budgets.sort()?
+
+**Tutor:**
+
+Difference between sorted() and .sort()
+
+- sorted(budgets) returns a new list that is sorted, leaving the original list unchanged.
+- budgets.sort() sorts the list in place and returns None.
+
+Pattern on toy data:
+
+```python
+budgets = [300, 150, 200]
+sorted_budgets = sorted(budgets)  # TODO: what is sorted_budgets?
+original_budgets = budgets.copy()  # TODO: what is budgets now?
+budgets.sort()  # TODO: what is budgets after this line?
+```
+
+Which function leaves the original list unchanged?
+
+**My note:** sorted() leaves the original list unchanged because it returns a new sorted list. budgets.sort() sorts the list in place and returns None. In my program I used sorted() and [::-1], so my last line shows the original list from 4.0 unchanged.

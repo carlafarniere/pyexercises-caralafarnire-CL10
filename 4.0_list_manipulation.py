@@ -26,10 +26,39 @@ DELIVERABLE
     This file, with your comments and your code.
 """
 
-# 1. In:
-# 2. Process:
-# 3. Out:
+# 1. In: a list of 8 monthly advertising budgets (in euros), written in the code.
+# 2. Process: Python displays the list, picks one item, sorts the list,
+#    and computes the total, the average and the highest budget.
+# 3. Out: the whole list, one budget, the sorted list, the total, the average and the max.
 # 4. What my list is about, and what I computed from it:
+#    my list is the advertising budget of a brand from January to August.
+#    I computed the total, the average and the max: the total shows how much
+#    was spent, the average helps plan next month, the max shows the most expensive month.
 
 
 # Your code below
+# My list: advertising budget per month, from January to August (in euros)
+budgets = [1200, 950, 1500, 800, 1300, 1100, 700, 1450]
+print("The whole list is : ", budgets)
+
+# One item of my choice: March is the third item, so index 2 (Python counts from 0)
+print("The budget in March is : ", budgets[2])
+
+# The list sorted from the smallest to the largest budget
+sorted_budgets = sorted(budgets)
+print("The sorted list is : ", sorted_budgets)
+
+# Something computed from the list: total, average and highest budget
+total = sum(budgets)
+average = total / len(budgets)
+print("The total budget is : ", total)
+print("The average budget per month is : ", average)
+print("The highest budget is : ", max(budgets))
+
+# Check on three items: January, February and March
+first_three = budgets[0] + budgets[1] + budgets[2]
+print("The total of the first three months is : ", first_three)
+
+# Check:
+# - By hand: 1200 + 950 + 1500 = 3650. The program shows 3650, it agrees.
+# - By hand, the highest of these three is 1500. The program's max is 1500, it agrees.

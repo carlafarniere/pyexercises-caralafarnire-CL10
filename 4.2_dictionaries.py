@@ -23,10 +23,47 @@ DELIVERABLE
     This file, with your comments and your code.
 """
 
-# 1. In:
-# 2. Process:
-# 3. Out:
+# 1. In: a dictionary describing one customer, written in the code.
+# 2. Process: Python reads some fields, changes one, removes one,
+#    then goes through every field. It also asks for a field that does not exist.
+# 3. Out: each field with its value, before and after the changes.
 # 4. My object, my five fields, and why those:
+#    a customer of an online shop. name and email to contact them,
+#    city to target local offers, loyalty_points to reward them,
+#    last_purchase to know what to recommend next.
 
 
 # Your code below
+# My customer, described with a dictionary: field name -> value
+customer = {
+    "name": "Carla Martin",
+    "email": "carla.martin@mail.com",
+    "city": "Paris",
+    "loyalty_points": 120,
+    "last_purchase": "sneakers"
+    }
+
+# Read some fields
+print("The customer's name is: ", customer["name"])
+print("The customer's city is: ", customer["city"])
+
+# Change a field: the customer earned 30 more points
+customer["loyalty_points"] = customer["loyalty_points"] + 30
+print("The customer's points are now: ", customer["loyalty_points"])
+
+# Remove a field: the city is not needed anymore
+customer_city = customer.pop("city")
+print("The removed city was: ", customer_city)
+
+# Display every remaining field with its value
+for field, value in customer.items():
+    print(field, ":", value)
+
+# Ask for a field that does not exist, without crashing
+print("The customer's phone is: ", customer.get("phone", "not available"))
+
+# Check:
+# - With customer["phone"], the program crashed with KeyError: 'phone',
+#   because this field is not in the dictionary.
+# - With customer.get("phone", "not available"), it survives
+#   and displays "not available".
