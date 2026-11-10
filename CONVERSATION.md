@@ -3,24 +3,20 @@
 Written automatically by `tutor.py`. Add your own notes under any entry: what you tried, what broke, what you changed. Those notes are what is graded.
 
 ---
-## 2026-11-10 15:00, in .
+## 2026-11-10 22:02, in .
 
-**Me:** How to print in python
+**Me:** Exercise 1.0: What does the print() function do?
 
 **Tutor:**
 
-Printing in Python is done with the `print()` function.
+The print() function displays text or values on the screen.
 
+Pattern:
 ```python
-# This prints a string
+# TODO: print the text "Hello, world!"
 print("Hello, world!")
-
-# This prints a number
-print(42)
-
-# This prints a variable
-name = "Alice"
-print(name)
 ```
 
-What does the `print()` function always need as its argument?
+What does print() expect as its argument?
+
+**My note:** print() expects what I want to display between the parentheses: text in quotes ("Hello World") or a number. In exercise 1.0 I used it 6 times: once for "Hello World", then 5 times for my numbered name.
