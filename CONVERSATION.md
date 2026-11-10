@@ -58,3 +58,5 @@ clean_text = text.strip()  # TODO: What will clean_text be?
 What is the exact output of `clean_text` after running this code?
 
 **My note:** strip() removes the spaces at both ends only, so clean_text is "Hello, world!". In my program, the other methods (upper, lower, title) keep those spaces, so strip() is useful to clean form answers.
+
+
