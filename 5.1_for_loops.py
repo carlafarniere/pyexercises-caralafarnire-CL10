@@ -24,10 +24,27 @@ DELIVERABLE
     This file, with your comments and your code.
 """
 
-# 1. In:
-# 2. Process:
-# 3. Out:
+# 1. In: my list of 8 monthly advertising budgets from exercise 4.0.
+# 2. Process: a for loop goes through every budget, one by one, and computes
+#    its share of the total budget in %.
+# 3. Out: one line per month with its position, its budget and its share.
 # 4. What I compute for each item, and why it is worth showing:
+#    the share of the total budget. The reader sees at once which months
+#    took the biggest part of the money (March 16.7%, August 16.1%).
 
 
 # Your code below
+# My list from exercise 4.0: advertising budget per month, January to August
+budgets = [1200, 950, 1500, 800, 1300, 1100, 700, 1450]
+
+# The total, needed to compute each share
+total = sum(budgets)
+
+# For every position in the list: position, budget and share of the total
+for i in range(len(budgets)):
+    share = round(budgets[i] / total * 100, 1)
+    print("Month", i + 1, ": budget", budgets[i], "euros, share of total:", share, "%")
+
+# Check:
+# - The program printed 8 lines, and my list has 8 budgets: no off-by-one.
+# - By hand: 1200 / 9000 * 100 = 13.3 %, the program shows 13.3 % for month 1.

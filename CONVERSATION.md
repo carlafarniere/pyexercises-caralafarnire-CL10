@@ -146,6 +146,7 @@ phone = customer.get("phone")
 Question: Which method returns a default value when the key is missing?
 
 **My note:** customer["phone"] crashes with KeyError because the key does not exist. The method that returns a default value is .get(): in my program, customer.get("phone", "not available") displays "not available" instead of crashing.
+
 ---
 ## 2026-11-10 23:31, in .
 
@@ -170,3 +171,61 @@ budgets.sort()  # TODO: what is budgets after this line?
 Which function leaves the original list unchanged?
 
 **My note:** sorted() leaves the original list unchanged because it returns a new sorted list. budgets.sort() sorts the list in place and returns None. In my program I used sorted() and [::-1], so my last line shows the original list from 4.0 unchanged.
+
+---
+## 2026-11-10 23:41, in .
+
+**Me:** Exercise 5.1: Here is my code: for i in range(len(budgets)): print(i + 1, budgets[i]). Why does range start at 0, and is i + 1 correct to number the items from 1?
+
+**Tutor:**
+
+Understanding range and indexing.
+
+range(len(budgets)) starts at 0 because Python ranges are zero-based by default.
+Adding 1 to i is the correct way to number items from 1.
+
+Pattern:
+```python
+# TODO: replace budgets with your list
+budgets = [1200, 800, 2100]
+
+for i in range(len(budgets)):
+    print(i + 1, budgets[i])
+```
+
+What does range(len(budgets)) produce when budgets has 3 items?
+
+**My note:** range(len(budgets)) gives the positions 0 to 7 for my 8 budgets, because Python counts from 0 (with 3 items: 0, 1, 2). I print i + 1 so the months are numbered 1 to 8 for the reader, while budgets[i] still uses the real position.
+
+---
+## 2026-11-10 23:53, in .
+
+**Me:** Exercise 5.2: In Python, how do I make sure a while loop stops after a maximum number of attempts, and why use answer.strip().lower() before comparing?
+
+**Tutor:**
+
+Concept: Guarding a while loop with a counter and normalising user input.
+
+```python
+max_attempts = 3
+attempt = 0
+secret = "python"
+
+while attempt < max_attempts:
+    guess = input("Enter the secret word: ")
+    # TODO: normalise the input before comparing
+    if guess.strip().lower() == secret:
+        print("Correct!")
+        break
+    attempt += 1
+else:
+    print("Too many attempts.")
+```
+
+Why strip().lower()?
+- `strip()` removes leading/trailing spaces.
+- `lower()` converts the string to lowercase.
+
+Question: Which two string methods are used to clean the input before comparison?
+
+**My note:** My while loop has two exits: the right answer (found = True) or the counter reaching max_attempts = 3, so it can never run for ever. I clean each answer with strip() (removes spaces) and lower() (lowercase), so " MARCH " and "march" count as the same answer, as my test showed.

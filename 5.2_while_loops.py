@@ -28,10 +28,41 @@ DELIVERABLE
     This file, with your comments and your code.
 """
 
-# 1. In:
-# 2. Process:
-# 3. Out:
-# 4. My stop condition, my attempt limit, my summary:
-
+# 1. In: the user's answers to one question about my budgets from exercise 4.0:
+#    "Which month had the biggest advertising budget?"
+# 2. Process: a while loop asks again after each wrong answer. Each answer is
+#    cleaned with .strip().lower(), so "March", "march" and " MARCH " count
+#    as the same answer: my decision, because only the word matters.
+# 3. Out: a message after each attempt, then a summary.
+# 4. Stop condition: the answer is "march" OR 3 attempts are used.
+#    Limit: 3 attempts, then the program stops and gives the right answer.
+#    Summary: success or not, number of attempts used, list of answers given.
 
 # Your code below
+max_attempts = 3
+attempts = 0
+found = False
+answers = []   # every answer, to show in the summary
+
+while attempts < max_attempts and not found:
+    answer = input("Which month had the biggest advertising budget? ")
+    attempts = attempts + 1
+    answers.append(answer)
+    # Same answer with or without capitals and extra spaces
+    if answer.strip().lower() == "march":
+        found = True
+        print("Correct!")
+    else:
+        print("Wrong. Attempts left:", max_attempts - attempts)
+
+# Summary
+print("--- Summary ---")
+if found:
+    print("Found in", attempts, "attempt(s).")
+else:
+    print("Limit reached. The answer was March (1500 euros).")
+print("Answers given:", answers)
+
+# Check:
+# - Three wrong answers: the program stops after attempt 3.
+# - " MARCH " is accepted as correct.
