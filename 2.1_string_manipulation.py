@@ -24,10 +24,27 @@ DELIVERABLE
     This file, with your comments and your code.
 """
 
-# 1. In:
-# 2. Process:
-# 3. Out:
+# 1. In: a sentence typed by the user.
+# 2. Process: Python applies four different string methods to the sentence.
+# 3. Out: four transformed versions of the sentence, one per line.
 # 4. My four transformations, and when each is useful:
-
+#    - strip(): clean a form answer by removing spaces typed by mistake.
+#    - upper(): write a promo code or a slogan in capitals.
+#    - lower(): store emails in one format so "Carla@" and "carla@" match.
+#    - title(): put a capital on each word of a customer's name.
 
 # Your code below
+# Ask the user for a sentence
+sentence = input("Enter a sentence: ")
+
+# Show the four transformations, between [ ] to see the spaces
+print("strip: [" + sentence.strip() + "]")
+print("upper: [" + sentence.upper() + "]")
+print("lower: [" + sentence.lower() + "]")
+print("title: [" + sentence.title() + "]")
+
+# Check: I typed "  hello My friend  " (spaces at both ends, capital in the middle)
+# - strip: [hello My friend] -> expected, spaces at both ends removed.
+# - upper: [  HELLO MY FRIEND  ] -> expected, but the spaces stay.
+# - lower: [  hello my friend  ] -> expected, the capital M became m.
+# - title: [  Hello My Friend  ] -> expected, every word starts with a capital.
