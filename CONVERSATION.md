@@ -259,3 +259,30 @@ What is the name of the function that is called inside the if statement?
 *Cut by the tutor: One function per answer. The next one is yours to write.*
 
 **My note:** the function called inside the if is is_positive. In my file, describe_number calls is_zero, is_positive and is_even inside its if, and zero is checked first because it is neither positive nor negative.
+
+---
+## 2026-11-16 13:08, in .
+
+**Me:** Exercise 6.0: what is the difference between return and print in a Python function?
+
+**Tutor:**
+
+Difference between return and print in a function
+A return statement sends a value back to the caller so it can be used later; a print statement only displays text on the screen and returns nothing.
+
+Pattern
+```python
+def add_and_print(a, b):
+    total = a + b
+    print(total)        # shows on screen
+    return total        # gives back to caller
+
+# --- toy example ---
+result = add_and_print(3, 4)  # prints 7 on screen
+print(result)                 # prints 7 again
+```
+
+Question
+Which keyword lets the caller reuse the value outside the function?
+
+**My note:** the keyword is return. In my 6.0, average_budget returns the average so I can store it in a variable and reuse it; print would only show it on screen and the value would be lost.

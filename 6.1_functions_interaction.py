@@ -83,4 +83,4 @@ print(is_positive(-3))
 for number in [4, -3, 0]:
     print(describe_number(number))
 # Expected: "4 is positive and even." / "-3 is negative and odd." / "0 is zero."
-
+# Result when I ran it: True, True, False, then exactly the three expected sentences. Test OK.
