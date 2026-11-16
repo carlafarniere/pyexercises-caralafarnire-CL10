@@ -229,3 +229,33 @@ Why strip().lower()?
 Question: Which two string methods are used to clean the input before comparison?
 
 **My note:** My while loop has two exits: the right answer (found = True) or the counter reaching max_attempts = 3, so it can never run for ever. I clean each answer with strip() (removes spaces) and lower() (lowercase), so " MARCH " and "march" count as the same answer, as my test showed.
+---
+## 2026-11-16 12:49, in .
+
+**Me:** Exercise 6.1: why is zero checked before positive in describe_number?
+
+**Tutor:**
+
+Refused, off topic.
+
+---
+## 2026-11-16 12:52, in .
+
+**Me:** Exercise 6.1: in Python, can a function call another function inside an if statement? Show me a toy example.
+
+**Tutor:**
+
+Yes, a function can call another function inside an if statement.
+
+```python
+def is_positive(number):
+    return number > 0
+
+# --- cut by the tutor: One function per answer. The next one is yours to write ---
+```
+
+What is the name of the function that is called inside the if statement?
+
+*Cut by the tutor: One function per answer. The next one is yours to write.*
+
+**My note:** the function called inside the if is is_positive. In my file, describe_number calls is_zero, is_positive and is_even inside its if, and zero is checked first because it is neither positive nor negative.
