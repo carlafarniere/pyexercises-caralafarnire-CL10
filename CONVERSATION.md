@@ -659,3 +659,39 @@ b = [False, True, True]
 What is the name of the operator that performs element-wise logical AND?
 
 **My note:** the operator for AND is &. But the tutor's example uses lists, and | between two lists does not work in plain Python. In my 8.1 I use | and & on numbers: VIEW | EDIT turns on two bits and gives 011, and intern & PUBLISH gives 0, so the intern cannot publish.
+
+---
+## 2026-11-17 14:24, in .
+
+**Me:** Exercise 9.0: How does try except work with two except blocks in Python?
+
+**Tutor:**
+
+The concept is: handling different exception types separately.
+
+```python
+# try_except_two_blocks.py
+def divide_and_square(numbers):
+    results = []
+    for n in numbers:
+        try:
+            # TODO: write the division that may raise ZeroDivisionError
+            value = 10 / n
+        except ZeroDivisionError:
+            # TODO: append "Cannot divide by zero" to results
+            pass
+        except ValueError:
+            # TODO: append "Invalid input" to results
+            pass
+        else:
+            # TODO: square the value and append to results
+            pass
+    return results
+
+# Toy data
+print(divide_and_square([2, 0, "a", 4]))
+```
+
+What is the purpose of the `else` block in this pattern?
+
+**My note:** the else block runs only if no exception happened in the try. In my 9.0, I put the division and the print directly in the try, then break. My else is on the while loop: it runs only when the loop ends without break, after 3 wrong answers.
