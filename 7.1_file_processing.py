@@ -37,15 +37,90 @@ DELIVERABLE
 """
 
 # What is wrong with names.txt (found by reading it, not by guessing):
-# -
-# -
-# -
-# -
-
-# 1. In:
+# - Empty lines (line 3 and line 9): they are not names.
+# - Spaces at the start of some lines ("  alan TURING", "  linus torvalds").
+# - Capital letters are mixed: "ada LOVELACE", "grace hopper", "GUIDO van rossum".
+#   Nothing is written the same way.
+# - One last name has two words: "van rossum". If I take only the last word, I would
+#   sort Guido under "rossum", and "van" would be lost or treated as a first name.
+# - The names are not in any order.
+ 
+# 1. In: names.txt, one person per line, first name then last name.
 # 2. Process, problem by problem:
-# 3. Out:
+#    - Empty lines: I skip every line that is empty after removing spaces.
+#    - Spaces at the start/end: strip() removes them, split() ignores double spaces.
+#    - Mixed capitals: I rewrite each word with only its first letter in capital,
+#      except "van", which stays in small letters as in "van Rossum".
+#    - Two-word last name: the first word is the first name, ALL the other words are
+#      the last name.
+#    - Order: I sort the clean names by last name, ignoring capitals and "van".
+# 3. Out: a new file names_sorted.txt, one clean name per line, sorted by last name.
+#    names.txt is only read, never modified.
 # 4. How I decide which word is the last name:
-
-
+#    In this file every line starts with the first name. So the first word is the first
+#    name and everything after it is the last name. For "GUIDO van rossum" the last name
+#    is "van Rossum", and I sort it under R (Rossum), because "van" is a particle.
+ 
+ 
 # Your code below
+ 
+input_file = "names.txt"
+output_file = "names_sorted.txt"
+ 
+# Reads the file and gives back its lines, without changing the file
+def load_lines(file_name):
+    with open(file_name, "r", encoding="utf-8") as file:
+        return file.readlines()
+ 
+# Cleans one line: removes extra spaces and fixes the capitals.
+# Gives back None for an empty line, so I can skip it.
+def clean_name(line):
+    words = line.split()
+    if len(words) == 0:
+        return None
+    clean_words = []
+    for word in words:
+        if word.lower() == "van":
+            clean_words.append("van")
+        else:
+            clean_words.append(word.capitalize())
+    return " ".join(clean_words)
+ 
+# Gives the word used to sort: the last name, without "van", in small letters
+def sort_key(name):
+    last_name_words = name.split()[1:]
+    if last_name_words[0] == "van":
+        last_name_words = last_name_words[1:]
+    return " ".join(last_name_words).lower()
+ 
+# Writes the clean names in a new file, one per line
+def save_names(names, file_name):
+    with open(file_name, "w", encoding="utf-8") as file:
+        for name in names:
+            file.write(name + "\n")
+ 
+# Runs the whole program, step by step
+def main():
+    lines = load_lines(input_file)
+    clean_names = []
+    for line in lines:
+        name = clean_name(line)
+        if name is not None:
+            clean_names.append(name)
+    sorted_names = sorted(clean_names, key=sort_key)
+    save_names(sorted_names, output_file)
+    print("Lines in", input_file, ":", len(lines))
+    print("Names in", output_file, ":", len(sorted_names))
+    print(sorted_names)
+ 
+# Runs main() only when this file is the one being executed
+if __name__ == "__main__":
+    main()
+ 
+ 
+# Check it yourself:
+# - names.txt has 10 lines, names_sorted.txt has 8 lines. The difference is 2,
+#   because the 2 empty lines (line 3 and line 9) were removed.
+# - By hand: the first last name in alphabetical order is Hamilton (H-a before H-o of
+#   Hopper), the last one is Turing (T-u after T-o of Torvalds).
+#   My file starts with Margaret Hamilton and ends with Alan Turing. Test OK.

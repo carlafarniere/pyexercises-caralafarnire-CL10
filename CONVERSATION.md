@@ -566,3 +566,96 @@ def safe_divide(numerator, denominator):
 What exception type does the except clause catch in this function?
 
 **My note:** it catches ZeroDivisionError. In my game I catch FileNotFoundError if scenarios_C.csv is missing.
+---
+## 2026-11-16 15:02, in .
+
+**Me:** Exercise 7.0: what does the mode a do in open() in Python?
+
+**Tutor:**
+
+The mode 'a' in open() stands for "append".
+
+```python
+# Example: appending a line to a file
+with open("example.txt", mode="a") as file:
+    file.write("\nNew line added")
+```
+
+What is the difference between mode="a" and mode="w" when opening a file?
+
+**My note:** "a" adds at the end of the file, "w" erases the file and starts again. In my 7.0 I use "a", so each run adds a new campaign to campaign_log.csv: after 3 runs I had 3 campaigns and 1 header.
+
+---
+## 2026-11-16 15:02, in .
+
+**Me:** Exercise 7.1: how does sorted() with a key function work in Python?
+
+**Tutor:**
+
+Sorting with a key function.
+The sorted() function takes an iterable and an optional key function that extracts a comparison value from each element.
+
+```python
+# TODO: replace the fake list with your real data
+data = [
+    {"name": "alpha", "value": 3},
+    {"name": "beta",  "value": 1},
+    {"name": "gamma", "value": 2}
+]
+
+# TODO: decide which field to sort on
+sorted_data = sorted(data, key=lambda row: row["value"])
+
+# TODO: what does the lambda do here?
+```
+
+Question: which argument of sorted() receives the lambda expression?
+
+**My note:** the key argument. In my 7.1, I give key=sort_key: it returns the last name in small letters, without "van", so sorted() orders the names by last name. names.txt has 10 lines and names_sorted.txt has 8, because the 2 empty lines were removed.
+
+---
+## 2026-11-17 12:33, in .
+
+**Me:** Exercise 8.0: how does Python compare two strings with the < operator?
+
+**Tutor:**
+
+String comparison with < uses lexicographical order (dictionary order).
+It compares the Unicode code points of the characters from left to right until a difference is found.
+
+Pattern to try:
+
+```python
+def compare_strings():
+    a = "apple"
+    b = "banana"
+    # TODO: print the result of a < b
+    # TODO: print the result of "zebra" < "apple"
+    # TODO: print the result of "apple" < "apple"
+```
+
+What does the expression `"apple" < "banana"` return?
+
+**My note:** "apple" < "banana" is True because a comes before b. Capital letters come before small letters, so "Python" < "python" is True in my 8.0.
+
+---
+## 2026-11-17 12:40, in .
+
+**Me:** Exercise 8.1: what do the | and & operators do in Python?
+
+**Tutor:**
+
+Element-wise logical OR and AND on boolean arrays or lists.
+
+```python
+# Example with lists of booleans
+a = [True, False, True]
+b = [False, True, True]
+
+# TODO: use | between a and b
+# TODO: use & between a and b
+```
+
+What is the name of the operator that performs element-wise logical AND?
+
+**My note:** the operator for AND is &. But the tutor's example uses lists, and | between two lists does not work in plain Python. In my 8.1 I use | and & on numbers: VIEW | EDIT turns on two bits and gives 011, and intern & PUBLISH gives 0, so the intern cannot publish.
