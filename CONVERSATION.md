@@ -695,3 +695,27 @@ print(divide_and_square([2, 0, "a", 4]))
 What is the purpose of the `else` block in this pattern?
 
 **My note:** the else block runs only if no exception happened in the try. In my 9.0, I put the division and the print directly in the try, then break. My else is on the while loop: it runs only when the loop ends without break, after 3 wrong answers.
+---
+## 2026-11-17 14:45, in .
+
+**Me:** Exercise 10.0: How does re.fullmatch work in Python?
+
+**Tutor:**
+
+Matching the whole string with regular expressions.
+
+```python
+import re
+
+# TODO: import the re module
+
+text = "abc123"
+pattern = r"\d+"   # matches one or more digits
+
+# TODO: use re.fullmatch to check if the whole text matches the pattern
+# TODO: print the result
+```
+
+What does `re.fullmatch` return when the pattern matches the entire string?
+
+**My note:** it returns a match object, and None if the whole text does not match. In the tutor's example, "abc123" with \d+ gives None, because "abc" are not digits. In my 10.0, I test "is not None" to get True or False for each field.
